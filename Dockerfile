@@ -1,6 +1,6 @@
-FROM bars21/dev_base as dev_hep_root
-COPY --from=bars21/dev_base $COMMON_BUILD_PREFIX $COMMON_BUILD_PREFIX
-COPY --from=bars21/dev_base $COMMON_INSTALL_PREFIX $COMMON_INSTALL_PREFIX
+FROM bars21/dev_base:gcc9 as dev_hep_root
+COPY --from=bars21/dev_base:gcc9 $COMMON_BUILD_PREFIX $COMMON_BUILD_PREFIX
+COPY --from=bars21/dev_base:gcc9 $COMMON_INSTALL_PREFIX $COMMON_INSTALL_PREFIX
 ## ROOT 6.*
 ENV ROOT_VER=6.24.00
 RUN . $COMMON_INSTALL_PREFIX/setup.sh && \
